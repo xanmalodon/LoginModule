@@ -9,16 +9,17 @@
 <body>
 
 	<%
+	
+	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1 
+	response.setHeader("Pragma", "no-cache"); // HTTP 1.0
+	response.setHeader("Expires", "0"); // Proxies
+	
 		if (session.getAttribute("username")==null){
 			response.sendRedirect("login.jsp");
 		}
 	%>
 	
-<video controls preload="metadata" style=" width:px;  height:px;">
-	<source src="https://www.youtube.com/watch?v=cEBkvm0-rg0&ab_channel=Fireship" type="video/mp4">
-	Your browser does not support the HTML5 video tag.
-</video><br />
-<a href="http://scriptgenerator.net/simple-html5-embed-video-player/" title="Generate here your HTML5 video player" style="text-align: right;display: block">HTML5 Video Player</a> 
-	
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cEBkvm0-rg0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 </body>
 </html>
